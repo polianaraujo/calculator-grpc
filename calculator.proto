@@ -4,17 +4,20 @@ package calculator;
 
 // Serviço com um método de soma
 service Calculator {
-    rpc Sum (SumRequest) returns (SumResponse);
+    rpc Sum (TwoNumbers) returns (Result);
+    rpc Sub (TwoNumbers) returns (Result);
+    rpc Mul (TwoNumbers) returns (Result);
+    rpc Div (TwoNumbers) returns (Result);
 }
 
 // Estrutura da requisição
-message SumRequest {
+message TwoNumbers {
     int32 a = 1;
     int32 b = 2;
 }
 
 
 // Estrutura da resposta
-message SumResponse {
-    int32 result = 1;
+message Result {
+    double value = 1;
 }

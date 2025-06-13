@@ -38,14 +38,11 @@ calculator-grpc
 └── README.md  (opcional)
 ```
 
-#### 📦 requirements.txt
+#### 🤔 Analogia
 
-
-#### ⚙️ generate_proto.sh
-Script para gerar os arquivos Python do `.proto`
-
-Torná-lo executável e rodar:
-```
-chmod +x generate_proto.sh
-./generate_proto.sh
-```
+|Arquivo|Como é criado|Função|
+|`calculator.proto`|Manual|Definição das mensagens e serviço|
+|`calculator_pb2.py`|Automático (`.proto`)|Mensagens serializadas|
+|`calculator_pb2_gprc.py`|Automático (`.proto`)|Stubs do cliente e base do servidor|
+|`server.py`|Manual|Implementa o serviço (servidor gRPC)|
+|`client.py`|Manual|Consome o serviço (cliente gRPC)|
