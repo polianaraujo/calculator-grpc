@@ -24,17 +24,17 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10\x63\x61lculator.proto\x12\ncalculator\"\"\n\nSumRequest\x12\t\n\x01\x61\x18\x01 \x01(\x05\x12\t\n\x01\x62\x18\x02 \x01(\x05\"\x1d\n\x0bSumResponse\x12\x0e\n\x06result\x18\x01 \x01(\x05\x32\x44\n\nCalculator\x12\x36\n\x03Sum\x12\x16.calculator.SumRequest\x1a\x17.calculator.SumResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10\x63\x61lculator.proto\x12\ncalculator\"\"\n\nTwoNumbers\x12\t\n\x01\x61\x18\x01 \x01(\x05\x12\t\n\x01\x62\x18\x02 \x01(\x05\"\x17\n\x06Result\x12\r\n\x05value\x18\x01 \x01(\x01\x32\xe5\x01\n\nCalculator\x12\x31\n\x03Sum\x12\x16.calculator.TwoNumbers\x1a\x12.calculator.Result\x12\x36\n\x08Subtract\x12\x16.calculator.TwoNumbers\x1a\x12.calculator.Result\x12\x36\n\x08Multiply\x12\x16.calculator.TwoNumbers\x1a\x12.calculator.Result\x12\x34\n\x06\x44ivide\x12\x16.calculator.TwoNumbers\x1a\x12.calculator.Resultb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'calculator_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
-  _globals['_SUMREQUEST']._serialized_start=32
-  _globals['_SUMREQUEST']._serialized_end=66
-  _globals['_SUMRESPONSE']._serialized_start=68
-  _globals['_SUMRESPONSE']._serialized_end=97
-  _globals['_CALCULATOR']._serialized_start=99
-  _globals['_CALCULATOR']._serialized_end=167
+  _globals['_TWONUMBERS']._serialized_start=32
+  _globals['_TWONUMBERS']._serialized_end=66
+  _globals['_RESULT']._serialized_start=68
+  _globals['_RESULT']._serialized_end=91
+  _globals['_CALCULATOR']._serialized_start=94
+  _globals['_CALCULATOR']._serialized_end=323
 # @@protoc_insertion_point(module_scope)

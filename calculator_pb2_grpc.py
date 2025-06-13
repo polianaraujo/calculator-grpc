@@ -26,7 +26,7 @@ if _version_not_supported:
 
 
 class CalculatorStub(object):
-    """Serviço com um método de soma
+    """Serviço com vários métodos
     """
 
     def __init__(self, channel):
@@ -37,16 +37,49 @@ class CalculatorStub(object):
         """
         self.Sum = channel.unary_unary(
                 '/calculator.Calculator/Sum',
-                request_serializer=calculator__pb2.SumRequest.SerializeToString,
-                response_deserializer=calculator__pb2.SumResponse.FromString,
+                request_serializer=calculator__pb2.TwoNumbers.SerializeToString,
+                response_deserializer=calculator__pb2.Result.FromString,
+                _registered_method=True)
+        self.Subtract = channel.unary_unary(
+                '/calculator.Calculator/Subtract',
+                request_serializer=calculator__pb2.TwoNumbers.SerializeToString,
+                response_deserializer=calculator__pb2.Result.FromString,
+                _registered_method=True)
+        self.Multiply = channel.unary_unary(
+                '/calculator.Calculator/Multiply',
+                request_serializer=calculator__pb2.TwoNumbers.SerializeToString,
+                response_deserializer=calculator__pb2.Result.FromString,
+                _registered_method=True)
+        self.Divide = channel.unary_unary(
+                '/calculator.Calculator/Divide',
+                request_serializer=calculator__pb2.TwoNumbers.SerializeToString,
+                response_deserializer=calculator__pb2.Result.FromString,
                 _registered_method=True)
 
 
 class CalculatorServicer(object):
-    """Serviço com um método de soma
+    """Serviço com vários métodos
     """
 
     def Sum(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subtract(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Multiply(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Divide(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -57,8 +90,23 @@ def add_CalculatorServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Sum': grpc.unary_unary_rpc_method_handler(
                     servicer.Sum,
-                    request_deserializer=calculator__pb2.SumRequest.FromString,
-                    response_serializer=calculator__pb2.SumResponse.SerializeToString,
+                    request_deserializer=calculator__pb2.TwoNumbers.FromString,
+                    response_serializer=calculator__pb2.Result.SerializeToString,
+            ),
+            'Subtract': grpc.unary_unary_rpc_method_handler(
+                    servicer.Subtract,
+                    request_deserializer=calculator__pb2.TwoNumbers.FromString,
+                    response_serializer=calculator__pb2.Result.SerializeToString,
+            ),
+            'Multiply': grpc.unary_unary_rpc_method_handler(
+                    servicer.Multiply,
+                    request_deserializer=calculator__pb2.TwoNumbers.FromString,
+                    response_serializer=calculator__pb2.Result.SerializeToString,
+            ),
+            'Divide': grpc.unary_unary_rpc_method_handler(
+                    servicer.Divide,
+                    request_deserializer=calculator__pb2.TwoNumbers.FromString,
+                    response_serializer=calculator__pb2.Result.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -69,7 +117,7 @@ def add_CalculatorServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Calculator(object):
-    """Serviço com um método de soma
+    """Serviço com vários métodos
     """
 
     @staticmethod
@@ -87,8 +135,89 @@ class Calculator(object):
             request,
             target,
             '/calculator.Calculator/Sum',
-            calculator__pb2.SumRequest.SerializeToString,
-            calculator__pb2.SumResponse.FromString,
+            calculator__pb2.TwoNumbers.SerializeToString,
+            calculator__pb2.Result.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Subtract(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/calculator.Calculator/Subtract',
+            calculator__pb2.TwoNumbers.SerializeToString,
+            calculator__pb2.Result.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Multiply(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/calculator.Calculator/Multiply',
+            calculator__pb2.TwoNumbers.SerializeToString,
+            calculator__pb2.Result.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Divide(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/calculator.Calculator/Divide',
+            calculator__pb2.TwoNumbers.SerializeToString,
+            calculator__pb2.Result.FromString,
             options,
             channel_credentials,
             insecure,

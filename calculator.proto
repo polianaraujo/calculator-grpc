@@ -2,22 +2,19 @@ syntax = "proto3";
 
 package calculator;
 
-// Serviço com um método de soma
+// Serviço com vários métodos
 service Calculator {
     rpc Sum (TwoNumbers) returns (Result);
-    rpc Sub (TwoNumbers) returns (Result);
-    rpc Mul (TwoNumbers) returns (Result);
-    rpc Div (TwoNumbers) returns (Result);
+    rpc Subtract (TwoNumbers) returns (Result);
+    rpc Multiply (TwoNumbers) returns (Result);
+    rpc Divide (TwoNumbers) returns (Result);
 }
 
-// Estrutura da requisição
 message TwoNumbers {
     int32 a = 1;
     int32 b = 2;
 }
 
-
-// Estrutura da resposta
 message Result {
     double value = 1;
 }
